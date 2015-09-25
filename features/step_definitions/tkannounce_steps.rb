@@ -1,5 +1,5 @@
 Given(/^the stored information is already up\-to\-date$/) do
-  @tkannounce = TkAnnounce.new(from_db: true)
+  @tkannounce = TkAnnounce::Announcer.new(db: Tempfile.new('tkannounce_cucumber'))
   # Mock up the internal twitter as a spy
   allow(@tkannounce).to receive(:twitter).and_return(instance_spy('Twitter::REST::Client'))
 end
