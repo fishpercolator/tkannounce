@@ -10,4 +10,5 @@ group :test do
   gem 'faker'
   gem 'to_regexp'
   gem 'rspec-collection_matchers'
+  gem 'pry'
 end

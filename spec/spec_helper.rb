@@ -20,6 +20,7 @@
 require 'factory_girl'
 require_relative 'factories' # Why do I need this?
 require 'rspec/collection_matchers'
+require 'to_regexp'
 
 def support_file(name)
   Pathname.new(__FILE__).dirname + 'support' + name

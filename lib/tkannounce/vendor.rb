@@ -10,5 +10,6 @@ module TkAnnounce
     def ==(other)
       name == other.name && url == other.url
     end
+      
   end
 end

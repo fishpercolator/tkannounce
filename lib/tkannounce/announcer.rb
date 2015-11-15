@@ -21,5 +21,22 @@ module TkAnnounce
       vendors << vendor
     end
 
+    def vendors_in_db
+      db.vendors
+    end
+
+    def vendors_not_in_db
+      # Can't use Array#- here because reconstructed vendors have different hash values
+      db_vendors = vendors_in_db
+      vendors.reject { |v| db_vendors.include? v }
+    end
+
+    def tweet_new_vendors!
+      vendors_not_in_db.each do |vendor|
+        twitter.update("New vendor in Trinity Kitchen: Welcome #{vendor.name}! #{vendor.url}")
+      end
+      db.save_vendors vendors
+    end
+
   end
 end
