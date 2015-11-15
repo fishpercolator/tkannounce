@@ -14,8 +14,7 @@ module TkAnnounce
         logger.warn "Twitter config not implemented"
       end
       @vendors = []
-      @db_file = args[:db]
-      @db      = SQLite3::Database.new(@db_file.path)
+      @db      = DB.new(args[:db])
     end
 
     def add_vendor(vendor)

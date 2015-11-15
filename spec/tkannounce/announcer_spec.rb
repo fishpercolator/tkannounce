@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe TkAnnounce::Announcer do
 
   subject { described_class.new(db: Tempfile.new('tkannounce_spec')) }

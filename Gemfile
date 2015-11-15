@@ -9,4 +9,5 @@ group :test do
   gem 'factory_girl'
   gem 'faker'
   gem 'to_regexp'
+  gem 'rspec-collection_matchers'
 end

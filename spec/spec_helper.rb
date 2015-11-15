@@ -19,6 +19,11 @@
 
 require 'factory_girl'
 require_relative 'factories' # Why do I need this?
+require 'rspec/collection_matchers'
+
+def support_file(name)
+  Pathname.new(__FILE__).dirname + 'support' + name
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -96,4 +101,5 @@ RSpec.configure do |config|
 
   # Install FactoryGirl
   config.include FactoryGirl::Syntax::Methods
+
 end
