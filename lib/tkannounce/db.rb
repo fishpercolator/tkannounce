@@ -14,9 +14,11 @@ module TkAnnounce
     # Replace the contents of the vendors DB with the given array of vendors
     def save_vendors(vendors)
       sql.execute 'delete from vendors'
-      query = 'insert into vendors (name, url) values ' + (['(?,?)'] * vendors.length).join(',')
-      args = vendors.map {|v| [v.name, v.url] }.flatten
-      sql.execute query, args
+      unless vendors.empty?
+        query = 'insert into vendors (name, url) values ' + (['(?,?)'] * vendors.length).join(',')
+        args = vendors.map {|v| [v.name, v.url] }.flatten
+        sql.execute query, args
+      end
     end
 
     # Get all the vendors in the DB as Vendor objects

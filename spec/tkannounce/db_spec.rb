@@ -19,6 +19,11 @@ RSpec.describe TkAnnounce::DB do
     end
 
     describe '#save_vendors' do
+      it 'empties the db if there are no vendors' do
+        subject.save_vendors([])
+        from_db = subject.sql.execute('select * from vendors')
+        expect(from_db).to be_empty
+      end
       it 'updates the db to the given list of vendors' do
         vendors = 6.times.map { build(:vendor) }
         subject.save_vendors(vendors)
